@@ -1,12 +1,26 @@
 package controller;
 import model.House;
+import model.HouseNode;
 
 public class HouseTree {
-    private House root;
+    private HouseNode root;
 
     public boolean add(House house) {
         // TODO: implement add logic
         return false;
+    }
+
+    private HouseNode insertRecursive(HouseNode current, House house) {
+        if (current == null) {
+            return new HouseNode(house);
+        }
+
+        if (house.getIdProperty() < current.getInfo().getIdProperty()) {
+            current.setLeft(insertRecursive(current.getLeft(), house));
+        } else if (house.getIdProperty() > current.getInfo().getIdProperty()) {
+            current.setRight(insertRecursive(current.getRight(), house));
+        }
+        return current;
     }
 
     public House search(int idProperty) {

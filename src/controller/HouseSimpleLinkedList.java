@@ -1,30 +1,20 @@
 package controller;
+import model.House;
 import model.HouseListNode;
 
 // Esta clase manejará una lista enlazada simple de casas y sus operaciones básicas
 // como insertar al final y contar nodos.
 //Esta clase será utilizada en HouseTree o HouseController si es necesario.
 public class HouseSimpleLinkedList {
-    insertatEnd(House newHouse){
-        HouseListNode newNode = new HouseListNode(newHouse);
-        if (head == null) {
-            head = newNode;
-        } else {
-            HouseListNode current = head;
-            while (current.getNext() != null) {
-                current = current.getNext();
-            }
-            current.setNext(newNode);
-        }
+
+    public HouseListNode head; // Nodo inicial de la lista
+
+    public void insertAtEnd(House newHouse) {
+        // TODO: lógica luego
     }
 
-    countNodes(int count){
-        int count = 0;
-        HouseListNode current = head;
-        while (current != null) {
-            count++;
-            current = current.getNext();
-        }
-        return count;
+    public int countNodes(){
+        //Logica despues       
+        return 0;
     }
 }

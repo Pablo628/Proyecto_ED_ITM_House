@@ -1,15 +1,15 @@
 package model;
 
 public class HouseNode {
-    private house info;
+    private House info;
     private HouseNode left;
     private HouseNode right;
 
-    public house getInfo() {
+    public House getInfo() {
         return info;
     }
 
-    public void setInfo(house info) {
+    public void setInfo(House info) {
         this.info = info;
     }
 
@@ -29,7 +29,7 @@ public class HouseNode {
         this.right = right;
     }
 
-    public HouseNode(house info) {
+    public HouseNode(House info) {
         this.info = info;
         this.left = null;
         this.right = null;
