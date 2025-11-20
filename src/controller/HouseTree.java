@@ -20,15 +20,18 @@ public class HouseTree {
 
 
     public boolean add(House house) {
-        if (root == empty())
-        return false;
+        if (empty()){
+            root = new HouseNode(house);
+        }else{
+            insertRecursive(root, house);
+        }
+        return true;
     }
 
     private HouseNode insertRecursive(HouseNode current, House house) {
         if (current == null) {
-            return new HouseNode(house);
+            return new HouseNode(house); 
         }
-
         if (house.getIdProperty() < current.getInfo().getIdProperty()) {
             current.setLeft(insertRecursive(current.getLeft(), house));
         } else if (house.getIdProperty() > current.getInfo().getIdProperty()) {
