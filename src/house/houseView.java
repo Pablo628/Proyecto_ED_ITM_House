@@ -1,10 +1,12 @@
 package house;
 import controller.HouseTree;
+import controller.HouseController;
 import java.util.Scanner;
+import model.House;
 
 public class HouseView {
     static Scanner sc = new Scanner(System.in);
-    static HouseTree objhouseTree = new HouseTree();
+    static HouseController objhouseController = new HouseController();
 
     public static void main(String[] args) {
         byte opc;
@@ -29,7 +31,7 @@ public class HouseView {
                     break;
             }
             
-        } while (opc > 5);
+        } while (opc != 5);
     }
 
     private static byte menu() {
@@ -52,7 +54,25 @@ public class HouseView {
     }
 
     private static void addHouseView() {
+        System.out.println("---Agregar casa---");
+        System.out.print("ID propiedad: ");
+        int idProperty = sc.nextInt();
+        System.out.print("Ubicación: ");
+        sc.nextLine();
+        String ubication = sc.nextLine();
+        System.out.println("Direccion: ");
+        String address = sc.nextLine();
+        System.out.print("Metros cuadrados: ");
+        int squareMeters = sc.nextInt();
+        System.out.print("Número de habitaciones: ");
+        byte rooms = sc.nextByte();
+        House newHouse = new House( idProperty, ubication, address, squareMeters, rooms);
         
+        if (objhouseController.addHouse(newHouse)) {
+            System.out.println("Casa agregada exitosamente.");
+        } else {
+            System.out.println("Error al agregar la casa.");
+        }
     }
 
     private static void searchHouseView() {
