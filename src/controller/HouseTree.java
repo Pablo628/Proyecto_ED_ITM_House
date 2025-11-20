@@ -4,9 +4,23 @@ import model.HouseNode;
 
 public class HouseTree {
     private HouseNode root;
+    private HouseNode current;
+
+    private HouseSimpleLinkedList objContHSLList;
+
+
+    public HouseTree(){
+        this.root = null;
+        this.current = null;
+    }
+   
+    public boolean empty() {
+        return root == null;
+    }
+
 
     public boolean add(House house) {
-        // TODO: implement add logic
+        
         return false;
     }
 
