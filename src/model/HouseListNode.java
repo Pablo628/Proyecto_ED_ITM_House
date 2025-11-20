@@ -1,14 +1,14 @@
 package model;
 
 public class HouseListNode {
-    private house info;
+    private House info;
     private HouseListNode next;
 
-    public house getInfo() {
+    public House getInfo() {
         return info;
     }
 
-    public void setInfo(house info) {
+    public void setInfo(House info) {
         this.info = info;
     }
 
@@ -20,7 +20,7 @@ public class HouseListNode {
         this.next = next;
     }
 
-    public HouseListNode(house info) {
+    public HouseListNode(House info) {
         this.info = info;
         this.next = null;
     }

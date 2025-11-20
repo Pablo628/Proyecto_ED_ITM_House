@@ -1,25 +1,25 @@
 package controller;
-import model.HouseNode;
+import model.House;
 
 public class HouseTree {
-    private HouseNode root;
+    private House root;
 
-    boolean add(HouseNode house) {
+    public boolean add(House house) {
         // TODO: implement add logic
         return false;
     }
 
-    HouseNode search(int idProperty) {
+    public House search(int idProperty) {
         // TODO: implement search logic
         return null;
     }
 
-    boolean update(int idProperty, HouseNode newHouse) {
+    public boolean update(int idProperty, House newHouse) {
         // TODO: implement update logic
         return false;
     }
 
-    boolean delete(int idProperty) {
+    public boolean delete(int idProperty) {
         // TODO: implement delete logic
         return false;
     }
