@@ -20,17 +20,12 @@ public class HouseTree {
 
 
     public boolean add(House house) {
-        try {            
-            if (empty()){
-                root = new HouseNode(house);
-            }else{
-                insertRecursive(root, house);
-            }
-            return true;
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+        if (empty()){
+            root = new HouseNode(house);
+        }else{
+            root = insertRecursive(root, house);
         }
-        return false;
+        return true;        
     }
 
     private HouseNode insertRecursive(HouseNode current, House house) {
