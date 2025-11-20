@@ -1,9 +1,9 @@
 package model;
 
-public class house {
+public class House {
     private int idProperty;
     private String ubication;
-    private String addres;
+    private String address;
     private int squareMeters;
     private byte rooms;
 
@@ -19,11 +19,11 @@ public class house {
     public void setUbication(String ubication) {
         this.ubication = ubication;
     }
-    public String getAddres() {
-        return addres;
+    public String getAddress() {
+        return address;
     }
-    public void setAddres(String addres) {
-        this.addres = addres;
+    public void setAddress(String address) {
+        this.address = address;
     }
     public int getSquareMeters() {
         return squareMeters;
@@ -38,13 +38,13 @@ public class house {
         this.rooms = rooms;
     }
     
-    public house() {
+    public House() {
     }
     
-    public house(int idProperty, String ubication, String addres, int squareMeters, byte rooms) {
+    public House(int idProperty, String ubication, String address, int squareMeters, byte rooms) {
         this.idProperty = idProperty;
         this.ubication = ubication;
-        this.addres = addres;
+        this.address = address;
         this.squareMeters = squareMeters;
         this.rooms = rooms;
     }
