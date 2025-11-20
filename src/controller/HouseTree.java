@@ -5,8 +5,8 @@ import model.HouseNode;
 public class HouseTree {
     private HouseNode root;
     private HouseNode current;
-
     private HouseSimpleLinkedList objContHSLList;
+
 
 
     public HouseTree(){
@@ -20,7 +20,7 @@ public class HouseTree {
 
 
     public boolean add(House house) {
-        
+        if (root == empty())
         return false;
     }
 
