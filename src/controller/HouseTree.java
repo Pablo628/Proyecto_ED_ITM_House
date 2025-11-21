@@ -75,11 +75,47 @@ public class HouseTree {
     }
 
     public boolean delete(int idProperty) {
-        if (empty()){
-            return null;
-        }else{
-            House foundHouse = searchRecursive(root, idProperty);
-            return foundHouse;
+        if (empty()) {
+            return false;
+        } else {
+            if (search(idProperty) == null) {
+                return false;
+            }
+            root = deleteRecursive(root, idProperty);
+            return true;
         }
     } 
+
+    private HouseNode deleteRecursive(HouseNode current, int idProperty) {
+        if (current == null) {
+            return null;
+        }
+
+        if (idProperty < current.getInfo().getIdProperty()) {
+            current.setLeft(deleteRecursive(current.getLeft(), idProperty));
+        } else if (idProperty > current.getInfo().getIdProperty()) {
+            current.setRight(deleteRecursive(current.getRight(), idProperty));
+        } else {
+            if (current.getLeft() == null && current.getRight() == null) {
+                return null;
+            } else if (current.getLeft() == null) {
+                return current.getRight();
+            } else if (current.getRight() == null) {
+                return current.getLeft();
+            } else {
+                HouseNode successor = findMin(current.getRight());
+                current.setInfo(successor.getInfo());
+                current.setRight(deleteRecursive(current.getRight(), successor.getInfo().getIdProperty()));
+            }
+        }
+        return current;
+    }
+
+    private HouseNode findMin(HouseNode node) {
+        HouseNode current = node;
+        while (current.getLeft() != null) {
+            current = current.getLeft();
+        }
+        return current;
+    }
 }
