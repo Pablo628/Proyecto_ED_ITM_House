@@ -45,9 +45,18 @@ public class HouseTree {
         return null;
     }
 
-    public boolean update(int idProperty, House newHouse) {
-        // TODO: implement update logic
-        return false;
+    public boolean update(int idProperty, House updatedHouse) {
+        
+        House currenthouse = search(idProperty);
+        
+        if (currenthouse == null){
+            return false;
+        }
+            currenthouse.setUbication(updatedHouse.getUbication());
+            currenthouse.setAddress(updatedHouse.getAddress());
+            currenthouse.setSquareMeters(updatedHouse.getSquareMeters());
+            currenthouse.setRooms(updatedHouse.getRooms());
+            return true;
     }
 
     public boolean delete(int idProperty) {

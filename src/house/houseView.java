@@ -67,11 +67,16 @@ public class HouseView {
         System.out.print("Número de habitaciones: ");
         byte rooms = sc.nextByte();
         House newHouse = new House( idProperty, ubication, address, squareMeters, rooms);
-        
-        if (objhouseController.addHouse(newHouse)) {
-            System.out.println("Casa agregada exitosamente.");
-        } else {
-            System.out.println("Error al agregar la casa.");
+        try {
+
+            if (objhouseController.addHouse(newHouse)) {
+                System.out.println("Casa agregada exitosamente.");
+            } else {
+                System.out.println("Error al agregar la casa.");
+            } 
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -79,8 +84,35 @@ public class HouseView {
         
     }
     private static void updateHouseView() {
-        
+        try {
+            System.out.println("---Actualizar casa---");
+            System.out.print("ID de referencia de la casa: ");
+            int idProperty = sc.nextInt();
+            if (objhouseController.searchHouse(idProperty) != null) {
+                System.out.println("Ingrese los nuevos datos de la casa:");
+                System.out.print("Nueva ubicación: ");
+                sc.nextLine();
+                String newUbication = sc.nextLine();
+                System.out.println("Nueva direccion: ");
+                String newAddress = sc.nextLine();
+                System.out.print("Nuevos metros cuadrados: ");
+                int newSquareMeters = sc.nextInt();
+                System.out.print("Nuevo número de habitaciones: ");
+                byte newRooms = sc.nextByte();
+                House updatedHouse = new House(idProperty, newUbication, newAddress, newSquareMeters, newRooms);
+                if (objhouseController.updateHouse(idProperty, updatedHouse)) {
+                    System.out.println("Casa actualizada exitosamente.");
+                } else {
+                    System.out.println("Error al actualizar la casa.");
+                }
+            } else {
+                System.out.println("Casa no encontrada.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
+        
     private static void deleteHouseView() {
         
     }
