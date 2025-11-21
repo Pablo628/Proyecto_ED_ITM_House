@@ -41,12 +41,27 @@ public class HouseTree {
     }
 
     public House search(int idProperty) {
-        // TODO: implement search logic
-        return null;
+        if (empty()){
+            return null;
+        }else{
+            House foundHouse = searchRecursive(root, idProperty);
+            return foundHouse;
+        }
+    }       
+    private House searchRecursive(HouseNode current, int idProperty) {
+        if (current == null) {
+            return null; 
+        }
+        if (idProperty == current.getInfo().getIdProperty()) {
+            return current.getInfo(); 
+        }
+        return idProperty < current.getInfo().getIdProperty()
+            ? searchRecursive(current.getLeft(), idProperty)
+            : searchRecursive(current.getRight(), idProperty);
     }
-
+    
     public boolean update(int idProperty, House updatedHouse) {
-        
+
         House currenthouse = search(idProperty);
         
         if (currenthouse == null){

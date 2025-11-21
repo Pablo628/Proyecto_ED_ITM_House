@@ -81,6 +81,24 @@ public class HouseView {
     }
 
     private static void searchHouseView() {
+        try {
+            System.out.println("---Buscar casa---");
+            System.out.print("ID de la casa a buscar: ");
+            int idProperty = sc.nextInt();
+            House foundHouse = objhouseController.searchHouse(idProperty);
+            if (foundHouse != null) {
+                System.out.println("Casa encontrada:");
+                System.out.println("ID Propiedad: " + foundHouse.getIdProperty());
+                System.out.println("Ubicación: " + foundHouse.getUbication());
+                System.out.println("Dirección: " + foundHouse.getAddress());
+                System.out.println("Metros Cuadrados: " + foundHouse.getSquareMeters());
+                System.out.println("Número de Habitaciones: " + foundHouse.getRooms());
+            } else {
+                System.out.println("Casa no encontrada.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
         
     }
     private static void updateHouseView() {
