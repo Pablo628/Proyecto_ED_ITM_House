@@ -1,8 +1,8 @@
 package controller;
-import controller.HouseTree;
+
 import model.House;
 
-//Esta clase será la que manejara la logica houseView con HouseTree 
+
 public class HouseController {
     private HouseTree houseTree;
     

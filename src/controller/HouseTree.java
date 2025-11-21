@@ -75,8 +75,11 @@ public class HouseTree {
     }
 
     public boolean delete(int idProperty) {
-        // TODO: implement delete logic
-        return false;
-    }
-
+        if (empty()){
+            return null;
+        }else{
+            House foundHouse = searchRecursive(root, idProperty);
+            return foundHouse;
+        }
+    } 
 }
