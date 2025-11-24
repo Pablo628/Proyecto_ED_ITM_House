@@ -132,6 +132,18 @@ public class HouseView {
     }
         
     private static void deleteHouseView() {
+        try {
+            System.out.println("---Eliminar casa---");
+            System.out.print("ID de la casa a eliminar: ");
+            int idProperty = sc.nextInt();
+            if (objhouseController.deleteHouse(idProperty)) {
+                System.out.println("Casa eliminada exitosamente.");
+            } else {
+                System.out.println("Casa no encontrada.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
         
     }
 }
