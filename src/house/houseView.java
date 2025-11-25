@@ -14,23 +14,18 @@ public class houseView {
             opc = menu();
             switch (opc) {
                 case 1:
-                    //Agregar casa
                     addHouseView();
                     break;
                 case 2:
-                    //Buscar casa
                     searchHouseView();
                     break;
                 case 3:
-                    //Actualizar casa
                     updateHouseView();
                     break;
                 case 4:
-                    //Eliminar casa
                     deleteHouseView();
                     break;
                 case 5:
-                    //Listar casas
                     listHousesView();   
                     break;
             }

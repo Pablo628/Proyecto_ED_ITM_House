@@ -103,18 +103,25 @@ public class HouseTree {
             } else if (current.getRight() == null) {
                 return current.getLeft();
             } else {
-                HouseNode successor = findMin(current.getRight());
-                current.setInfo(successor.getInfo());
-                current.setRight(deleteRecursive(current.getRight(), successor.getInfo().getIdProperty()));
+
+                HouseNode successor = findMin(current.getRight());// Encontrar el sucesor (el nodo más pequeño en el subárbol derecho)
+
+                current.setInfo(successor.getInfo());// Reemplazar el valor del nodo actual con el del sucesor
+
+                current.setRight(deleteRecursive(current.getRight(), successor.getInfo().getIdProperty())); // Eliminar el sucesor
             }
         }
         return current;
     }
 
     private HouseNode findMin(HouseNode node) {
-        HouseNode current = node;
+
+        HouseNode current = node;// Nodo actual 200
+
         while (current.getLeft() != null) {
+
             current = current.getLeft();
+
         }
         return current;
     }
