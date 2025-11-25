@@ -7,9 +7,6 @@ import java.util.List;
 public class HouseTree {
     private HouseNode root;
     
-
-
-
     public HouseTree(){
         this.root = null;
     }
@@ -104,19 +101,17 @@ public class HouseTree {
                 return current.getLeft();
             } else {
 
-                HouseNode successor = findMin(current.getRight());// Encontrar el sucesor (el nodo más pequeño en el subárbol derecho)
-
-                current.setInfo(successor.getInfo());// Reemplazar el valor del nodo actual con el del sucesor
-
-                current.setRight(deleteRecursive(current.getRight(), successor.getInfo().getIdProperty())); // Eliminar el sucesor
+                HouseNode successor = findMin(current.getRight());
+                current.setInfo(successor.getInfo());
+                current.setRight(deleteRecursive(current.getRight(), successor.getInfo().getIdProperty()));
             }
         }
         return current;
     }
 
-    private HouseNode findMin(HouseNode node) {
+    private HouseNode findMin(HouseNode node) { 
 
-        HouseNode current = node;// Nodo actual 200
+        HouseNode current = node;
 
         while (current.getLeft() != null) {
 
