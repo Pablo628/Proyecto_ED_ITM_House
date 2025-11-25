@@ -4,7 +4,7 @@ import controller.HouseController;
 import java.util.Scanner;
 import model.House;
 
-public class HouseView {
+public class houseView {
     static Scanner sc = new Scanner(System.in);
     static HouseController objhouseController = new HouseController();
 

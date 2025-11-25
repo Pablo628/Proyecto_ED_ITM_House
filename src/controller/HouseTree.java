@@ -1,6 +1,8 @@
 package controller;
 import model.House;
 import model.HouseNode;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HouseTree {
     private HouseNode root;
@@ -117,5 +119,19 @@ public class HouseTree {
             current = current.getLeft();
         }
         return current;
+    }
+    
+    public List<House> list() {
+    List<House> result = new ArrayList<>();
+    inOrder(root, result);
+    return result;
+    }
+
+    private void inOrder(HouseNode current, List<House> result) {
+        if (current != null) {
+            inOrder(current.getLeft(), result);
+            result.add(current.getInfo());
+            inOrder(current.getRight(), result);
+        }
     }
 }

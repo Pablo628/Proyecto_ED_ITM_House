@@ -1,6 +1,7 @@
 package controller;
 
 import model.House;
+import java.util.List;
 
 
 public class HouseController {
@@ -23,6 +24,9 @@ public class HouseController {
     }
     public boolean deleteHouse(int idProperty) {
         return houseTree.delete(idProperty);
+    }
+    public List<House> listHouses() {
+        return houseTree.list();
     }
 
 }
