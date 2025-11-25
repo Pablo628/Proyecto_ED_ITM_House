@@ -1,14 +1,14 @@
 package house;
-import controller.HouseTree;
-import controller.HouseController;
 import java.util.Scanner;
+import java.util.List;
+import controller.HouseController;
 import model.House;
 
 public class houseView {
     static Scanner sc = new Scanner(System.in);
     static HouseController objhouseController = new HouseController();
 
-    public static void main(String[] args) {
+    public static void start() {
         byte opc;
         do {
             opc = menu();
@@ -29,9 +29,13 @@ public class houseView {
                     //Eliminar casa
                     deleteHouseView();
                     break;
+                case 5:
+                    //Listar casas
+                    listHousesView();   
+                    break;
             }
             
-        } while (opc != 5);
+        } while (opc != 6);
     }
 
     private static byte menu() {
@@ -40,7 +44,8 @@ public class houseView {
         System.out.println("2. Buscar casa");
         System.out.println("3. Actualizar casa");
         System.out.println("4. Eliminar casa");
-        System.out.println("5. Salir");
+        System.out.println("5. Listar casas");
+        System.out.println("6. Salir");
         System.out.println("-----------");
         
         byte opcMena;
@@ -49,7 +54,7 @@ public class houseView {
             System.out.print("Seleccione una opción: ");
             opcMena = sc.nextByte();
             
-        } while (opcMena < 1 || opcMena > 5);
+        } while (opcMena < 1 || opcMena > 6);
         return opcMena;
     }
 
@@ -145,5 +150,29 @@ public class houseView {
             System.out.println("Error: " + e.getMessage());
         }
         
+    }
+
+
+    private static void listHousesView() {
+        try {
+            System.out.println("---Listado de casas---");
+            List<House> houses = objhouseController.listHouses();
+
+            if (houses.isEmpty()) {
+                System.out.println("No hay casas registradas.");
+                return;
+            }
+
+            for (House h : houses) {
+                System.out.println("ID Propiedad: " + h.getIdProperty());
+                System.out.println("Ubicación: " + h.getUbication());
+                System.out.println("Dirección: " + h.getAddress());
+                System.out.println("Metros cuadrados: " + h.getSquareMeters());
+                System.out.println("Número de habitaciones: " + h.getRooms());
+                System.out.println("---------------------------");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }

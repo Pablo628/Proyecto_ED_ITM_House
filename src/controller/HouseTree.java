@@ -6,14 +6,12 @@ import java.util.List;
 
 public class HouseTree {
     private HouseNode root;
-    private HouseNode current;
-    private HouseSimpleLinkedList objContHSLList;
+    
 
 
 
     public HouseTree(){
         this.root = null;
-        this.current = null;
     }
    
     public boolean empty() {
@@ -120,7 +118,7 @@ public class HouseTree {
         }
         return current;
     }
-    
+
     public List<House> list() {
     List<House> result = new ArrayList<>();
     inOrder(root, result);
